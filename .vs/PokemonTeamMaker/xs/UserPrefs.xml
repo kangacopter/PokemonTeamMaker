@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{55EB9673-C6AF-4995-AD23-080BB66A9DF7}|Default">
+  <MonoDevelop.Ide.ItemProperties.PokemonTeamMaker FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PokemonTeamMaker/Box.cs">
+    <Files>
+      <File FileName="PokemonTeamMaker/Program.cs" Line="1" Column="1" />
+      <File FileName="PokemonTeamMaker/Pokemon.cs" Line="1" Column="1" />
+      <File FileName="PokemonTeamMaker/Team.cs" Line="1" Column="1" />
+      <File FileName="PokemonTeamMaker/Box.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PokemonTeamMaker" expanded="True">
+            <Node name="PokemonTeamMaker" expanded="True">
+              <Node name="Box.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
