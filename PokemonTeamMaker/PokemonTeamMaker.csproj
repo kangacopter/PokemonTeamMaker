@@ -36,7 +36,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pokemon.cs" />
     <Compile Include="Team.cs" />
-    <Compile Include="Box.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

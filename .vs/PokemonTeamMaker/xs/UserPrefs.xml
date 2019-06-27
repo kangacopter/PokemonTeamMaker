@@ -1,19 +1,16 @@
 ﻿<Properties StartupConfiguration="{55EB9673-C6AF-4995-AD23-080BB66A9DF7}|Default">
   <MonoDevelop.Ide.ItemProperties.PokemonTeamMaker FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PokemonTeamMaker/Box.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PokemonTeamMaker/Program.cs">
     <Files>
-      <File FileName="PokemonTeamMaker/Program.cs" Line="1" Column="1" />
-      <File FileName="PokemonTeamMaker/Pokemon.cs" Line="1" Column="1" />
-      <File FileName="PokemonTeamMaker/Team.cs" Line="1" Column="1" />
-      <File FileName="PokemonTeamMaker/Box.cs" Line="1" Column="1" />
+      <File FileName="PokemonTeamMaker/Program.cs" Line="16" Column="13" />
+      <File FileName="PokemonTeamMaker/Pokemon.cs" Line="7" Column="24" />
+      <File FileName="PokemonTeamMaker/Team.cs" Line="11" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PokemonTeamMaker" expanded="True">
-            <Node name="PokemonTeamMaker" expanded="True">
-              <Node name="Box.cs" selected="True" />
-            </Node>
+            <Node name="PokemonTeamMaker" expanded="True" />
           </Node>
         </State>
       </Pad>

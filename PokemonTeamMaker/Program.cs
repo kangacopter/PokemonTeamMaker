@@ -6,7 +6,14 @@ namespace PokemonTeamMaker
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Create console UI
+
+            // Menu to:
+            // 1. View Pokedex
+            // 2. Create Team
+            // 3. View Teams
+
+
         }
     }
 }
