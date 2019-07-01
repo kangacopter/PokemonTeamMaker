@@ -48,10 +48,57 @@ namespace PokemonTeamMaker
         public double PercentMale { get; set; }
         public string Type1 { get; set; }
         public string Type2 { get; set; }
-        public bool IsLegendary { get; set; } // I'd like to take the 0/1
+        public bool IsLegendary { get; set; } // 0/1 === false/true
 
         public Pokemon()
         {
         }
+
+        // public Pokemon getPokemon(int number) {} (do one that searches int.. overloading?)
+        // public Pokemon getPokemon(string name) {}
+
+        // Here is the CSV top line and order of data:
+        // [0] abilities
+        // [1] against_bug
+        // [2] against_dark
+        // [3] against_dragon
+        // [4] against_electric
+        // [5] against_fairy
+        // [6] against_fight
+        // [7] against_fire
+        // [8] against_flying
+        // [9] against_ghost
+        // [10] against_grass
+        // [11] against_ground
+        // [12] against_ice
+        // [13] against_normal
+        // [14] against_poison
+        // [15] against_psychic
+        // [16] against_rock
+        // [17] against_steel
+        // [18] against_water
+        // [19] attack
+        // [20] base_egg_steps
+        // [21] base_happiness
+        // [22] base_total
+        // [23] capture_rate
+        // [24] classfication
+        // [25] defense
+        // [26] experience_growth
+        // [27] height_m
+        // [28] hp
+        // [29] japanese_name
+        // [30] name ***
+        // [31] percentage_male
+        // [32] pokedex_number ***
+        // [33] sp_attack
+        // [34] sp_defense
+        // [35] speed
+        // [36] type1
+        // [37] type2
+        // [38] weight_kg
+        // [39] generation
+        // [40] is_legendary
+
     }
 }

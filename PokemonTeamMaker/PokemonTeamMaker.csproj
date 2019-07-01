@@ -36,6 +36,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pokemon.cs" />
     <Compile Include="Team.cs" />
+    <Compile Include="PokedexSearch.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="Pokedex.cs" />
+    <Compile Include="PokedexEntry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pokemon.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

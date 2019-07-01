@@ -17,5 +17,14 @@ namespace PokemonTeamMaker
             Name = name; // Set name of pokemon team
             Slots = slots; // Set number of slots a team can be
         }
+
+        // Saves team to csv file (append)
+        // public saveTeam() {}
+
+        // Gets the team from the csv file 
+        // public Team getTeam() {}
+
+        // Allows editing of team? Maybe this wont exit here
+        // public editTeam() {}
     }
 }
