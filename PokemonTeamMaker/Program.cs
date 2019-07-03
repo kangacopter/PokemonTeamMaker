@@ -9,7 +9,7 @@ namespace PokemonTeamMaker
             var pokedex = new Pokedex();
             pokedex.GetPokedex();
             // Create console UI
-
+            Menu.Run();
             // Menu to:
             // 1. View Pokedex
             // 2. Create team
