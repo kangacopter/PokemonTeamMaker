@@ -6,8 +6,6 @@ namespace PokemonTeamMaker
     {
         public static void Main(string[] args)
         {
-            var pokedex = new Pokedex();
-            pokedex.GetPokedex();
             // Create console UI
             Menu.Run();
             // Menu to:

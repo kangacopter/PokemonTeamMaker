@@ -10,7 +10,7 @@ namespace PokemonTeamMaker
 
         public static int Display()
         {
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine();
             Console.WriteLine("Pokemon Team Maker");
             Console.WriteLine("******************");
@@ -50,8 +50,10 @@ namespace PokemonTeamMaker
                     switch (input)
                     {
                         case 1:
-                            Console.WriteLine("Show pokedex");
-                            System.Threading.Thread.Sleep(1000);
+                            var pokedex = new Pokedex();
+                            pokedex.GetPokedex();
+                            //Console.WriteLine("Show pokedex");
+                            //System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
                             Console.WriteLine("Create Team");
