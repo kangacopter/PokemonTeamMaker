@@ -31,6 +31,7 @@ namespace PokemonTeamMaker
                 {
                     // Get the ability array separately
 
+
                     // Then split everything else by delimiter
                     string[] pokemon = line.Split(delimiters);
                     //Console.WriteLine(line + " END LINE");
