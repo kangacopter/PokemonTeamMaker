@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace PokemonTeamMaker
 {
@@ -21,29 +22,22 @@ namespace PokemonTeamMaker
             using (StreamReader reader = new StreamReader(fileName))
             {
                 string line;
-                char[] delimiters = { ',' }; // Delimit the rest of data
-                char[] bracketDelimiters = { '[', ']' }; // Delimit ability
+                char[] delimiters = { ',' }; // Delimit by comma
+                char[] bracketDelimiters = { '[', ']' }; // Delimit ability by bracket
 
-                string headline = reader.ReadLine(); // Remove header row
+                var headline = reader.ReadLine().Split(delimiters).ToList(); // Generate header row
+
                 while ((line = reader.ReadLine()) != null)
                 {
+                    var bracketDelimit = line.Trim().Split(bracketDelimiters);
+                    var abilityDelimit = bracketDelimit[1].Trim().Split(delimiters);
 
                     List<string> abilities = new List<string>();
-                    var matches = Regex.Matches(line, @"([''])(?:(?=(\\?))\2.)*?\1");
-                    // Get the ability array separately
-                    foreach (Match match in matches)
-                    {
-                        abilities.Add(match.ToString());
-                    }
-
-                    var bracketDelimit = line.Split(bracketDelimiters);
+                    abilities.AddRange(abilityDelimit);
 
                     // Then split everything else by delimiter
-                    string[] pokemonData = bracketDelimit[2].Split(delimiters);
-
-
-                    Console.WriteLine();
-                    Console.WriteLine("****************************");
+                    var pokemonData = bracketDelimit[2].Split(delimiters).ToList();
+                    pokemonData.RemoveAt(0);
                 }
 
             }
@@ -60,9 +54,10 @@ namespace PokemonTeamMaker
 
         // Build a dictionary with CSV data
         // Key is going to be pokedex_number, value is Pokemon
-        public void BuildPokedex(string fileContents)
+        public void BuildPokedex()
         {
-            // Go through fileContents and build pokemon
+            // Build pokemon objects
+            // Assign to dictionary
         }
 
         // This will write Pokedex entires to console
