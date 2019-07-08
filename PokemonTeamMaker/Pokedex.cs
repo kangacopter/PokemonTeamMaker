@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace PokemonTeamMaker
 {
@@ -15,35 +16,36 @@ namespace PokemonTeamMaker
             DirectoryInfo dir = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(dir.FullName, "pokemon.csv");
             //fileContents = ReadFile(fileName);
+
+            // Parse the CSV file
             using (StreamReader reader = new StreamReader(fileName))
             {
                 string line;
-                //char[] ability_delimiter = new char[] { '"', '[', ']' };
-                char[] delimiters = new char[] { ',' };
+                char[] delimiters = { ',' }; // Delimit the rest of data
+                char[] bracketDelimiters = { '[', ']' }; // Delimit ability
 
-                // Need to get the first row as the properties? 
-                // Maybe not...
-                // Go through and assign to each property in pokemon class
-                // Also deal with the first ability item which is in a weird format
-                // if "[ ]"
-
+                string headline = reader.ReadLine(); // Remove header row
                 while ((line = reader.ReadLine()) != null)
                 {
-                    // Get the ability array separately
 
+                    List<string> abilities = new List<string>();
+                    var matches = Regex.Matches(line, @"([''])(?:(?=(\\?))\2.)*?\1");
+                    // Get the ability array separately
+                    foreach (Match match in matches)
+                    {
+                        abilities.Add(match.ToString());
+                    }
+
+                    var bracketDelimit = line.Split(bracketDelimiters);
 
                     // Then split everything else by delimiter
-                    string[] pokemon = line.Split(delimiters);
-                    //Console.WriteLine(line + " END LINE");
-                    foreach (string i in pokemon)
-                    {
-                        Console.Write(i + " ");
+                    string[] pokemonData = bracketDelimit[2].Split(delimiters);
 
-                    }
+
                     Console.WriteLine();
                     Console.WriteLine("****************************");
                 }
-               
+
             }
 
         }
