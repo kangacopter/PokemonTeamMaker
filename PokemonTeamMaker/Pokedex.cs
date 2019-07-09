@@ -37,8 +37,29 @@ namespace PokemonTeamMaker
 
                     // Then split everything else by delimiter
                     var pokemonData = bracketDelimit[2].Split(delimiters).ToList();
+
+                    //var count = 0;
+                    //foreach (string i in pokemonData)
+                    //{
+                    //    if(String.IsNullOrEmpty(i))
+                    //    {
+                    //        pokemonData[count] = "n/a";
+                    //    }
+                    //    count++;
+                    //}
                     pokemonData.RemoveAt(0);
+
+                    //int count = 0;
+                    //foreach (string i in pokemonData)
+                    //{
+                    //    Console.WriteLine(count + ":  " + i);
+                    //    count++;
+                    //}
+
+                    Pokemon pokemon = new Pokemon(abilities, pokemonData);
+                    Console.WriteLine(pokemon.Name);
                 }
+
 
             }
 
