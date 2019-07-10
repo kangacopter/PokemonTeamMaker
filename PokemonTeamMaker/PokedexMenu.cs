@@ -1,19 +1,19 @@
 ﻿using System;
 namespace PokemonTeamMaker
 {
-    public static class Menu
+    public static class PokedexMenu
     {
-
         public static int Display()
         {
             //Console.Clear();
             Console.WriteLine();
-            Console.WriteLine("Pokemon Team Maker");
+            Console.WriteLine("Pokedex");
             Console.WriteLine("******************");
             Console.WriteLine();
-            Console.WriteLine(" 1. Pokedex");
-            Console.WriteLine(" 2. Create Team");
-            Console.WriteLine(" 3. View Teams");
+            Console.WriteLine(" 1. View Pokedex");
+            Console.WriteLine(" 2. Search by name");
+            Console.WriteLine(" 3. Search by number");
+            Console.WriteLine(" 3. Search by type");
             Console.WriteLine(" Press 'q' to exit.");
             Console.WriteLine();
             Console.WriteLine(" Selection >>>>");
@@ -46,17 +46,21 @@ namespace PokemonTeamMaker
                     switch (input)
                     {
                         case 1:
-                            var pokedex = new Pokedex();
-                            pokedex.GetPokedex();
-                            //Console.WriteLine("Show pokedex");
-                            //System.Threading.Thread.Sleep(1000);
+                            Console.WriteLine("Show entire pokedex");
+                            // Pokedex should show a listing (giant table)
+                            // User can enter in the name/number they want to see
+                            System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
-                            Console.WriteLine("Create Team");
+                            Console.WriteLine("Enter name: ");
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 3:
-                            Console.WriteLine("View Teams");
+                            Console.WriteLine("Enter Pokedex number: ");
+                            System.Threading.Thread.Sleep(1000);
+                            break;
+                        case 4:
+                            Console.WriteLine("Enter Pokemon type: ");
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case -1:

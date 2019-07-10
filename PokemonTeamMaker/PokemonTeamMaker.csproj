@@ -40,6 +40,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="Pokedex.cs" />
     <Compile Include="PokedexEntry.cs" />
+    <Compile Include="PokedexMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="pokemon.csv">

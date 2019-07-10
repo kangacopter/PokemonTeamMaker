@@ -8,15 +8,14 @@ namespace PokemonTeamMaker
 {
     public class Pokedex
     {
-        private readonly string fileContents;
-        private readonly Dictionary<int, Pokemon> Entries;
+        private Dictionary<string, Pokemon> Entries { get; set; }
 
         public Pokedex()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo dir = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(dir.FullName, "pokemon.csv");
-            //fileContents = ReadFile(fileName);
+            Dictionary<string, Pokemon> dex = new Dictionary<string, Pokemon>();
 
             // Parse the CSV file
             using (StreamReader reader = new StreamReader(fileName))
@@ -37,30 +36,16 @@ namespace PokemonTeamMaker
 
                     // Then split everything else by delimiter
                     var pokemonData = bracketDelimit[2].Split(delimiters).ToList();
-
-                    //var count = 0;
-                    //foreach (string i in pokemonData)
-                    //{
-                    //    if(String.IsNullOrEmpty(i))
-                    //    {
-                    //        pokemonData[count] = "n/a";
-                    //    }
-                    //    count++;
-                    //}
                     pokemonData.RemoveAt(0);
 
-                    //int count = 0;
-                    //foreach (string i in pokemonData)
-                    //{
-                    //    Console.WriteLine(count + ":  " + i);
-                    //    count++;
-                    //}
-
                     Pokemon pokemon = new Pokemon(abilities, pokemonData);
-                    Console.WriteLine(pokemon.Name);
+
+                    // Add to dictionary
+                    dex.Add(pokemon.Name, pokemon);
+
                 }
-
-
+                Entries = dex;
+                getPokemonByName("wartortle");
             }
 
         }
@@ -73,26 +58,29 @@ namespace PokemonTeamMaker
             }
         }
 
-        // Build a dictionary with CSV data
-        // Key is going to be pokedex_number, value is Pokemon
-        public void BuildPokedex()
-        {
-            // Build pokemon objects
-            // Assign to dictionary
-        }
 
         // This will write Pokedex entires to console
         // Might be able to make this return sections of it, or have paging...
         public void GetPokedex()
         {
             Console.WriteLine(Entries);
+            foreach (KeyValuePair<string, Pokemon> entry in Entries)
+            {
+                Console.WriteLine(entry.Key + ": " + entry.Value.PokedexNumber);
+            }
         }
+
         // public Pokemon getPokemonByType(string type) {}
 
-        // Read CSV line by line and build a Pokemon
-        // Maybe use arrays, first one is base array with header?
-        // Each line after will build a Pokemon and add it to the dictionary
-        // with the pokedex_number as the key
+        public void getPokemonByName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentException("Please enter a valid Pokemon name.");
+            }
+            name = name.First().ToString().ToUpper() + name.Substring(1);
+            Console.WriteLine(name);
+        }
 
     }
 }

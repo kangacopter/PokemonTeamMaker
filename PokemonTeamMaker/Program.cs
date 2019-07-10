@@ -6,6 +6,7 @@ namespace PokemonTeamMaker
     {
         public static void Main(string[] args)
         {
+
             // Create console UI
             Menu.Run();
             // Menu to:
