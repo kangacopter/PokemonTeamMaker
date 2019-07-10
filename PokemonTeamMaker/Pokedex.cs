@@ -45,7 +45,8 @@ namespace PokemonTeamMaker
 
                 }
                 Entries = dex;
-                getPokemonByName("wartortle");
+                // Testing remove this
+                GetPokemonByName("wartortle");
             }
 
         }
@@ -64,15 +65,15 @@ namespace PokemonTeamMaker
         public void GetPokedex()
         {
             Console.WriteLine(Entries);
-            foreach (KeyValuePair<string, Pokemon> entry in Entries)
-            {
-                Console.WriteLine(entry.Key + ": " + entry.Value.PokedexNumber);
-            }
+            //foreach (KeyValuePair<string, Pokemon> entry in Entries)
+            //{
+            //    Console.WriteLine(entry.Key + ": " + entry.Value.PokedexNumber);
+            //}
         }
 
         // public Pokemon getPokemonByType(string type) {}
 
-        public void getPokemonByName(string name)
+        public void GetPokemonByName(string name)
         {
             if (string.IsNullOrEmpty(name))
             {

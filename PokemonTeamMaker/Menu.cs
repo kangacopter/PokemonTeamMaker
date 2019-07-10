@@ -8,11 +8,11 @@ namespace PokemonTeamMaker
         {
             //Console.Clear();
             Console.WriteLine();
-            Console.WriteLine("Pokemon Team Maker");
+            Console.WriteLine("Pokemon Team Maker: Main Menu");
             Console.WriteLine("******************");
             Console.WriteLine();
             Console.WriteLine(" 1. Pokedex");
-            Console.WriteLine(" 2. Create Team");
+            Console.WriteLine(" 2. Create/Edit Team");
             Console.WriteLine(" 3. View Teams");
             Console.WriteLine(" Press 'q' to exit.");
             Console.WriteLine();
@@ -46,13 +46,16 @@ namespace PokemonTeamMaker
                     switch (input)
                     {
                         case 1:
+                            input = -1;
                             var pokedex = new Pokedex();
-                            pokedex.GetPokedex();
+                            PokedexMenu.Run();
+                            //pokedex.GetPokedex();
                             //Console.WriteLine("Show pokedex");
                             //System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
-                            Console.WriteLine("Create Team");
+                            input = -1;
+                            TeamMenu.Run();
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 3:
@@ -60,8 +63,8 @@ namespace PokemonTeamMaker
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case -1:
-                            Console.WriteLine("Exit");
-                            System.Threading.Thread.Sleep(1000);
+                            Console.Clear();
+                            Console.WriteLine("See ya later... gotta catch 'em all!");
                             break;
                         default:
                             Console.WriteLine("Invalid choice");
