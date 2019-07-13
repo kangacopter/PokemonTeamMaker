@@ -22,19 +22,23 @@ namespace PokemonTeamMaker
             Pokemon = pokemon;
         }
 
-        // Saves team to csv file (append)
-         public void SaveTeam(Team team) {
+        // Saves team to csv file (append if exists)
+         public void SaveTeam() {
 
-            // Get current directory and set the default file name
-            string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo dir = new DirectoryInfo(currentDirectory);
-            var fileName = Path.Combine(dir.FullName, $"team_{team.Name}.csv");
-      
+            // Save to user's My Documents
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var filePath = Path.Combine(path, $"myPokemonTeams.csv");
+            using (StreamWriter sw = new StreamWriter(filePath))
+            {
+                sw.Write(Name + ",");
+            foreach (Pokemon pokemon in Pokemon)
+                {
+                    sw.Write(pokemon.Name);
+                }
+                Console.WriteLine("Team saved to " + filePath);
 
-            //List<string> lines = new List<string>();
-            //lines.Add(string.Join(delimiter, columns.Select(c => c.ColumnName)));
-            //lines.AddRange(dataTable.Rows.Cast<DataRow>().Select(row => string.Join(delimiter, columns.Select(c => row[c]))));
-            //File.WriteAllLines(filePath, lines);
+            }
+
         }
 
         // Gets and loads the team from the csv file 

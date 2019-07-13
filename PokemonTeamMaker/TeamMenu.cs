@@ -3,16 +3,12 @@ namespace PokemonTeamMaker
 {
     public static class TeamMenu
     {
-        public static int Display()
+        public static int Display(string teamName)
         {
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("Create Pokemon Team"); 
-
-            // Initialize a new team
-            Team team = new Team("New Team", 6, new System.Collections.Generic.List<Pokemon>());
-
-            Console.WriteLine("Current Team: " + team.Name);
+            Console.WriteLine("Current Team: " + teamName);
             // If new then New Team, or pull from loaded name
             // Make sure you only allow 6 pokemon per team...
             Console.WriteLine("******************");
@@ -44,12 +40,14 @@ namespace PokemonTeamMaker
         public static void Run()
         {
             int input = 0;
+            // Initialize a new team
+            Team team = new Team("New Team", 6, new System.Collections.Generic.List<Pokemon>());
 
             do
             {
                 try
                 {
-                    input = Display();
+                    input = Display(team.Name);
 
                     switch (input)
                     {
@@ -76,10 +74,10 @@ namespace PokemonTeamMaker
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 5:
-                            Console.WriteLine("Save team");
                             // Display a Pokemon type listing, choose, display list of pokemon
                             // This might be left for after project is submitted
-                            System.Threading.Thread.Sleep(1000);
+                            team.SaveTeam();
+                            System.Threading.Thread.Sleep(9000);
                             break;
                         case 6:
                             Console.Clear();
