@@ -94,5 +94,14 @@ namespace PokemonTeamMaker
             IsLegendary = data[39].Equals("1"); // Convert to boolean
 
         }
+
+        public override string ToString()
+        {
+            return
+                "*********************************************************\n" +
+                PokedexNumber + ": " + Name + ", " + Type1 + " and " + Type2 + "\n" +
+                "*********************************************************\n";
+                
+        }
     }
 }

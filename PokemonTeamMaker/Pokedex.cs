@@ -45,8 +45,6 @@ namespace PokemonTeamMaker
 
                 }
                 Entries = dex;
-                // Testing remove this
-                GetPokemonByName("wartortle");
             }
 
         }
@@ -73,14 +71,21 @@ namespace PokemonTeamMaker
 
         // public Pokemon getPokemonByType(string type) {}
 
-        public void GetPokemonByName(string name)
+        public Pokemon GetPokemonByName(string name)
         {
             if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentException("Please enter a valid Pokemon name.");
             }
             name = name.First().ToString().ToUpper() + name.Substring(1);
-            Console.WriteLine(name);
+            if (Entries.TryGetValue(name, out Pokemon result))
+            {
+                return result;
+            }
+            Console.WriteLine("MissingNo: Pokemon not found.");
+            return null;
+
+
         }
 
     }
