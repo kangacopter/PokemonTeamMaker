@@ -16,7 +16,7 @@ namespace PokemonTeamMaker
             Console.WriteLine(" 4. Search by type");
             Console.WriteLine(" 5. Main Menu");
             Console.WriteLine();
-            Console.WriteLine(" Selection >>>>");
+            Console.Write("Enter Selection >>>> ");
             var selection = Console.ReadLine();
 
             if (int.TryParse(selection, out int parsedVal))
@@ -52,17 +52,17 @@ namespace PokemonTeamMaker
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
-                            Console.WriteLine("Enter name: ");
+                            Console.Write("Enter name: ");
                             // Ask for name, search for name, return pokemon entry
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 3:
-                            Console.WriteLine("Enter Pokedex number: ");
+                            Console.Write("Enter Pokedex number: ");
                             // Ask for number, search number, return pokemon entry
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 4:
-                            Console.WriteLine("Enter Pokemon type: ");
+                            Console.Write("Enter Pokemon type: ");
                             // Display a Pokemon type listing, choose, display list of pokemon
                             // This might be left for after project is submitted
                             System.Threading.Thread.Sleep(1000);

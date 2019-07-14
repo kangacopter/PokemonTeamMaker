@@ -22,7 +22,7 @@ namespace PokemonTeamMaker
             Console.WriteLine(" 6. Save team");
             Console.WriteLine(" 7. Main Menu");
             Console.WriteLine();
-            Console.WriteLine(" Selection >>>>");
+            Console.Write("Enter Selection >>>> ");
             var selection = Console.ReadLine();
 
             if (int.TryParse(selection, out int parsedVal))
@@ -54,18 +54,19 @@ namespace PokemonTeamMaker
                     switch (input)
                     {
                         case 1:
-                            Console.WriteLine("Add from pokedex");
+                            Console.Write("Add from pokedex");
+                            // PROBABLY WILL ABANDON THIS FUNCTIONALITY
                             // Pokedex should show a listing (giant table)
                             // User can enter in the name/number they want to see
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
-                            Console.WriteLine("Enter pokemon name: ");
+                            Console.Write("Enter pokemon name: ");
                             string name = Console.ReadLine();
                             team.AddByName(name);
                             break;
                         case 3:
-                            Console.WriteLine("Enter slot to empty: ");
+                            Console.Write("Enter slot to empty: ");
                             var slotInput = Console.ReadLine();
                             if (Int32.TryParse(slotInput, out int slot)) {
                                 team.Remove(slot);
@@ -77,7 +78,7 @@ namespace PokemonTeamMaker
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 4:
-                            Console.WriteLine("Enter new team name: ");
+                            Console.Write("Enter new team name: ");
                             string newTeamName = Console.ReadLine();
                             team.EditTeamName(newTeamName);
                             System.Threading.Thread.Sleep(1000);

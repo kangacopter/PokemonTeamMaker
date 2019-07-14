@@ -43,10 +43,6 @@ namespace PokemonTeamMaker
 
         }
 
-        //public void AddFromPokedex() { }
-
-        //public void AddByDexNumber() { }
-
         public void AddByName(string name)
         {
             Pokedex pokedex = new Pokedex();

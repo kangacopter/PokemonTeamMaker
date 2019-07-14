@@ -16,7 +16,7 @@ namespace PokemonTeamMaker
             Console.WriteLine(" 3. View Teams");
             Console.WriteLine(" Press 'q' to exit.");
             Console.WriteLine();
-            Console.WriteLine(" Selection >>>>");
+            Console.Write("Enter Selection >>>> ");
             var selection = Console.ReadLine();
 
             if (int.TryParse(selection, out int parsedVal))
