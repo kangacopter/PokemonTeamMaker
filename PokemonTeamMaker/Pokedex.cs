@@ -15,6 +15,7 @@ namespace PokemonTeamMaker
             string currentDirectory = Directory.GetCurrentDirectory();
             DirectoryInfo dir = new DirectoryInfo(currentDirectory);
             var fileName = Path.Combine(dir.FullName, "pokemon.csv");
+            // What if this doesn't exist?
             Dictionary<string, Pokemon> dex = new Dictionary<string, Pokemon>();
 
             // Parse the CSV file

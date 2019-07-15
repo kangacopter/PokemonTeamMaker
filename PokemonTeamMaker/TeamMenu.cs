@@ -14,13 +14,12 @@ namespace PokemonTeamMaker
             // Make sure you only allow 6 pokemon per team...
             Console.WriteLine("******************");
             Console.WriteLine();
-            Console.WriteLine(" 1. Add from Pokedex");
-            Console.WriteLine(" 2. Add by name");
-            Console.WriteLine(" 3. Delete Pokemon");
-            Console.WriteLine(" 4. Rename team");
-            Console.WriteLine(" 5. Load team");
-            Console.WriteLine(" 6. Save team");
-            Console.WriteLine(" 7. Main Menu");
+            Console.WriteLine(" 1. Add Pokemon");
+            Console.WriteLine(" 2. Delete Pokemon");
+            Console.WriteLine(" 3. Rename team");
+            Console.WriteLine(" 4. Load team");
+            Console.WriteLine(" 5. Save team");
+            Console.WriteLine(" 6. Main Menu");
             Console.WriteLine();
             Console.Write("Enter Selection >>>> ");
             var selection = Console.ReadLine();
@@ -54,18 +53,11 @@ namespace PokemonTeamMaker
                     switch (input)
                     {
                         case 1:
-                            Console.Write("Add from pokedex");
-                            // PROBABLY WILL ABANDON THIS FUNCTIONALITY
-                            // Pokedex should show a listing (giant table)
-                            // User can enter in the name/number they want to see
-                            System.Threading.Thread.Sleep(1000);
-                            break;
-                        case 2:
                             Console.Write("Enter pokemon name: ");
                             string name = Console.ReadLine();
                             team.AddByName(name);
                             break;
-                        case 3:
+                        case 2:
                             Console.Write("Enter slot to empty: ");
                             var slotInput = Console.ReadLine();
                             if (Int32.TryParse(slotInput, out int slot)) {
@@ -77,25 +69,26 @@ namespace PokemonTeamMaker
                             
                             System.Threading.Thread.Sleep(1000);
                             break;
-                        case 4:
+                        case 3:
                             Console.Write("Enter new team name: ");
                             string newTeamName = Console.ReadLine();
                             team.EditTeamName(newTeamName);
                             System.Threading.Thread.Sleep(1000);
                             break;
-                        case 5:
+                        case 4:
                             Console.WriteLine("Load team");
                             // Display a Pokemon type listing, choose, display list of pokemon
                             // This might be left for after project is submitted
-                            System.Threading.Thread.Sleep(1000);
+                            team.LoadTeam(1);
+                            System.Threading.Thread.Sleep(9000);
                             break;
-                        case 6:
+                        case 5:
                             // Display a Pokemon type listing, choose, display list of pokemon
                             // This might be left for after project is submitted
                             team.SaveTeam();
-                            System.Threading.Thread.Sleep(9000);
+                            System.Threading.Thread.Sleep(4000);
                             break;
-                        case 7:
+                        case 6:
                             Console.Clear();
                             Menu.Run();
                             break;
@@ -112,7 +105,7 @@ namespace PokemonTeamMaker
                     Console.WriteLine(" ERROR: " + e);
                 }
             }
-            while (input != 7);
+            while (input != 6);
         }
     }
 

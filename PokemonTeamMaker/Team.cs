@@ -1,26 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Threading;
 
 namespace PokemonTeamMaker
 {
     public class Team
     {
+        public int Id { get; private set; }
         public string Name { get; set; }
         public int Slots { get; set; }
         public List<Pokemon> Pokemon { get; set; }
-        public string[] Weaknesses { get; set; }
-        // Maybe determine all the weaknesses in a set
-        // This will probably have to be a function that iterates through the weakness (against < 1)
-        // And adds to the string[]
 
-
+        public static int globalTeamsId;
+        
         public Team(string name, int slots)
         {
             Name = name; // Set name of pokemon team
             Slots = slots; // Set number of slots a team can be
             Pokemon = new List<Pokemon>();
             // Probably need to make this an array that is limited to the slot count
+            Id = Interlocked.Increment(ref globalTeamsId);
+        }
+
+        public Team(string name, int slots, int id, List<Pokemon> pokemon)
+        {
+            Name = name; // Set name of pokemon team
+            Slots = slots; // Set number of slots a team can be
+            Pokemon = pokemon; // Set loaded pokemon
+            Id = id; // Set loaded id
         }
 
         // Saves team to csv file (append if exists)
@@ -30,13 +39,14 @@ namespace PokemonTeamMaker
             // Save to user's My Documents
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var filePath = Path.Combine(path, $"myPokemonTeams.csv");
-            using (StreamWriter sw = new StreamWriter(filePath))
+            using (StreamWriter sw = new StreamWriter(filePath, true))
             {
-                sw.Write(Name + ",");
+                sw.Write(Id + "," + Name + ",");
                 foreach (Pokemon pokemon in Pokemon)
                 {
                     sw.Write(pokemon.Name + ",");
                 }
+                sw.Write("\n");
                 Console.WriteLine("Team saved to " + filePath);
 
             }
@@ -56,11 +66,44 @@ namespace PokemonTeamMaker
         public void Remove(int slot)
         {
             // Remove by slot number
-            Pokemon.RemoveAt(slot + 1);
+            Pokemon.RemoveAt(slot - 1);
         }
 
         // Gets and loads the team from the csv file 
-        // public Team LoadTeam() {}
+        public void LoadTeam(int id)
+        {
+            // Load from user's My Documents
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var filePath = Path.Combine(path, $"myPokemonTeams.csv");
+            // What if this doesn't exist?
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+
+                    var teamData = line.Trim().Split(',');
+                    string teamName = teamData[1];
+                    int teamId = Convert.ToInt32(teamData[0]);
+                    List<Pokemon> teamPokemon = new List<Pokemon>();
+                    var subPokemon = teamData.Skip(2);
+                    foreach (string x in subPokemon)
+                    {
+                        Console.WriteLine(x);
+                    }
+
+
+                //    if (teamId == id)
+                //    {
+                //        return Team loadedTeam = new Team(teamName, 6, teamId, teamPokemon);
+
+                //    } else { return null};
+                }
+
+            }
+
+        }
 
         // Allows editing of team
         public void EditTeamName(string name)
