@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Linq;
 
 namespace PokemonTeamMaker
@@ -23,9 +22,11 @@ namespace PokemonTeamMaker
             {
                 string line;
                 char[] delimiters = { ',' }; // Delimit by comma
-                char[] bracketDelimiters = { '[', ']' }; // Delimit ability by bracket
+                char[] bracketDelimiters = { '[', ']' }; // Delimit abilities by bracket
 
-                var headline = reader.ReadLine().Split(delimiters).ToList(); // Generate header row
+                var headline = reader.ReadLine().Split(delimiters).ToList();
+                // Generate header row, remove from rest of data.
+                // TODO: Perhaps use this headline in the future
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -35,13 +36,13 @@ namespace PokemonTeamMaker
                     List<string> abilities = new List<string>();
                     abilities.AddRange(abilityDelimit);
 
-                    // Then split everything else by delimiter
+                    // Get the rest of the data that is NOT abilities
                     var pokemonData = bracketDelimit[2].Split(delimiters).ToList();
                     pokemonData.RemoveAt(0);
 
                     Pokemon pokemon = new Pokemon(abilities, pokemonData);
 
-                    // Add to dictionary
+                    // Add to pokedex dictionary
                     dex.Add(pokemon.Name, pokemon);
 
                 }
@@ -63,11 +64,10 @@ namespace PokemonTeamMaker
         // Might be able to make this return sections of it, or have paging...
         public void GetPokedex()
         {
-            Console.WriteLine(Entries);
-            //foreach (KeyValuePair<string, Pokemon> entry in Entries)
-            //{
-            //    Console.WriteLine(entry.Key + ": " + entry.Value.PokedexNumber);
-            //}
+            foreach (var entry in Entries)
+            {
+                Console.WriteLine(entry.Value);
+            }
         }
 
         // public Pokemon getPokemonByType(string type) {}

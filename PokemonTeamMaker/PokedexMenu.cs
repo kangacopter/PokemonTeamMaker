@@ -22,7 +22,7 @@ namespace PokemonTeamMaker
             {
                 return parsedVal;
             }
-            else if (selection == "q" || selection == "Q")
+            if (selection == "q" || selection == "Q")
             {
                 return -1;
             }
@@ -45,9 +45,9 @@ namespace PokemonTeamMaker
                     switch (input)
                     {
                         case 1:
-                            Console.WriteLine("Show entire pokedex");
-                            // Pokedex should show a listing (giant table)
-                            // User can enter in the name/number they want to see
+                            input = 4;
+                            Pokedex pokedex = new Pokedex();
+                            pokedex.GetPokedex();
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:

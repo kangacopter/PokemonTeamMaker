@@ -42,7 +42,6 @@
     <Compile Include="PokedexEntry.cs" />
     <Compile Include="PokedexMenu.cs" />
     <Compile Include="TeamMenu.cs" />
-    <Compile Include="ViewTeams.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="pokemon.csv">

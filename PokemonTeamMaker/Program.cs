@@ -6,6 +6,7 @@ namespace PokemonTeamMaker
     {
         public static void Main(string[] args)
         {
+            // Start the program
             Menu.Run();
         }
     }

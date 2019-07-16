@@ -3,17 +3,15 @@ namespace PokemonTeamMaker
 {
     public static class Menu
     {
-
+        // Show initial menu
         public static int Display()
         {
-            //Console.Clear();
             Console.WriteLine();
             Console.WriteLine("Pokemon Team Maker: Main Menu");
-            Console.WriteLine("******************");
+            Console.WriteLine("***************************");
             Console.WriteLine();
             Console.WriteLine(" 1. Pokedex");
-            Console.WriteLine(" 2. Create/Edit Team");
-            Console.WriteLine(" 3. View Teams");
+            Console.WriteLine(" 2. Pokemon Team Manager\n");
             Console.WriteLine(" Press 'q' to exit.");
             Console.WriteLine();
             Console.Write("Enter Selection >>>> ");
@@ -31,8 +29,7 @@ namespace PokemonTeamMaker
 
         }
 
-        // Deal with valid int input that is not on the menu!
-
+        // Initial menu functions
         public static void Run()
         {
             int input = 0;
@@ -49,17 +46,10 @@ namespace PokemonTeamMaker
                             input = -1;
                             var pokedex = new Pokedex();
                             PokedexMenu.Run();
-                            //pokedex.GetPokedex();
-                            //Console.WriteLine("Show pokedex");
-                            //System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
                             input = -1;
                             TeamMenu.Run();
-                            System.Threading.Thread.Sleep(1000);
-                            break;
-                        case 3:
-                            Console.WriteLine("View Teams");
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case -1:
@@ -70,7 +60,6 @@ namespace PokemonTeamMaker
                             Console.WriteLine("Invalid choice");
                             System.Threading.Thread.Sleep(1000);
                             break;
-
                     }
                 }
                 catch (Exception e)

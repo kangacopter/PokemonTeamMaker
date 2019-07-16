@@ -52,6 +52,7 @@ namespace PokemonTeamMaker
         public string Type2 { get; set; }
         public bool IsLegendary { get; set; }
 
+        // Intialize/populate Pokemon data
         public Pokemon(List<string> abilities, List<string> data)
         {
             Abilities = abilities;
@@ -95,12 +96,17 @@ namespace PokemonTeamMaker
 
         }
 
+        // Format Pokemon object output
         public override string ToString()
         {
             return
                 "*********************************************************\n" +
-                PokedexNumber + ": " + Name + ", " + Type1 + " and " + Type2 + "\n" +
-                "*********************************************************\n";
+                "Dex No. " + PokedexNumber + ": " + Name + " [" + Type1 + "]" +
+                (Type2 == "None" ? null : "[" + Type2 + "]") + "\n" +
+                "Attack: " + Attack + " Defense: " + Defense + " HP: " + HP +
+                " \nSpAttack: " + SpAttack + " SpDefense: " + SpDefense + " Speed: " + Speed +
+                "\nHeight: " + Height + "m Weight: " + Weight + "kg " + PercentMale + "% Male" +
+                "\n*********************************************************\n";
                 
         }
     }

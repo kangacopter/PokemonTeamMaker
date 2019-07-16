@@ -7,12 +7,12 @@ namespace PokemonTeamMaker
         {
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine("Create Pokemon Team"); 
-            Console.WriteLine("Current Team: " + team.Name);
-            Console.WriteLine(team);
-            // If new then New Team, or pull from loaded name
-            // Make sure you only allow 6 pokemon per team...
-            Console.WriteLine("******************");
+            Console.WriteLine("Pokemon Team Manager");
+            Console.WriteLine("***************************\n");
+            Console.WriteLine("Team Name: " + team.Name);
+            // Shows current status of team
+            Console.Write(team);
+            Console.WriteLine("\n***************************");
             Console.WriteLine();
             Console.WriteLine(" 1. Add Pokemon");
             Console.WriteLine(" 2. Delete Pokemon");
@@ -36,14 +36,11 @@ namespace PokemonTeamMaker
 
         }
 
-        // Deal with valid int input that is not on the menu!
-
         public static void Run()
         {
             int input = 0;
             // Initialize a new team
             Team team = new Team("New Team", 6);
-            // Need to make sure the team does not exceed it's slot count
             do
             {
                 try
@@ -76,15 +73,11 @@ namespace PokemonTeamMaker
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 4:
-                            Console.WriteLine("Load team");
-                            // Display a Pokemon type listing, choose, display list of pokemon
-                            // This might be left for after project is submitted
-                            team.LoadTeam(1);
-                            System.Threading.Thread.Sleep(9000);
+                            Console.WriteLine("Loading team...");
+                            team.LoadTeam();
+                            System.Threading.Thread.Sleep(2000);
                             break;
                         case 5:
-                            // Display a Pokemon type listing, choose, display list of pokemon
-                            // This might be left for after project is submitted
                             team.SaveTeam();
                             System.Threading.Thread.Sleep(4000);
                             break;
