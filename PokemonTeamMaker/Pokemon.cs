@@ -96,17 +96,21 @@ namespace PokemonTeamMaker
 
         }
 
+
+
         // Format Pokemon object output
         public override string ToString()
         {
+
             return
-                "*********************************************************\n" +
+                "----------------------------------------------------------------------\n" +
                 "Dex No. " + PokedexNumber + ": " + Name + " [" + Type1 + "]" +
                 (Type2 == "None" ? null : "[" + Type2 + "]") + "\n" +
-                "Attack: " + Attack + " Defense: " + Defense + " HP: " + HP +
-                " \nSpAttack: " + SpAttack + " SpDefense: " + SpDefense + " Speed: " + Speed +
-                "\nHeight: " + Height + "m Weight: " + Weight + "kg " + PercentMale + "% Male" +
-                "\n*********************************************************\n";
+                "Attack: [" + Attack + "]     Defense: [" + Defense + "]   HP: [" + HP +
+                "] \nSpAttack: [" + SpAttack + "]  SpDefense: [" + SpDefense + "] Speed: [" + Speed +
+                "]\nHeight: " + Height + "m Weight: " + Weight + "kg " + PercentMale + "% Male" +
+                "\n----------------------------------------------------------------------\n";
+           
                 
         }
     }

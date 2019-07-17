@@ -35,6 +35,7 @@ namespace PokemonTeamMaker
         public static void Run()
         {
             int input = 0;
+            Pokedex pokedex = new Pokedex();
 
             do
             {
@@ -46,19 +47,20 @@ namespace PokemonTeamMaker
                     {
                         case 1:
                             input = 4;
-                            Pokedex pokedex = new Pokedex();
                             pokedex.GetPokedex();
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
                             Console.Write("Enter name: ");
-                            // Ask for name, search for name, return pokemon entry
-                            System.Threading.Thread.Sleep(1000);
+                            string pokemonSearch = Console.ReadLine();
+                            Pokemon result = pokedex.GetPokemonByName(pokemonSearch);
+                            Console.WriteLine(result);
+                            // Ask for name, return pokemon entry
+                            System.Threading.Thread.Sleep(9000);
                             break;
                         case 3:
                             Console.Write("Enter Pokemon type: ");
                             // Display a Pokemon type listing, choose, display list of pokemon
-                            // This might be left for after project is submitted
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 4:

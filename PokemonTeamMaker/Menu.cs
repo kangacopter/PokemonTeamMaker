@@ -6,8 +6,15 @@ namespace PokemonTeamMaker
         // Show initial menu
         public static int Display()
         {
-            Console.WriteLine();
-            Console.WriteLine("Pokemon Team Maker: Main Menu");
+            string title = @"
+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
+ |p| |o| |k| |e| |m| |o| |n|   |m| |a| |n| |a| |g| |e| |r|
+ +-+ +-+ +-+ +-+ +-+ +-+ +-+   +-+ +-+ +-+ +-+ +-+ +-+ +-+
+";
+            string pika = @"ϞϞ(๑⚈ ․̫ ⚈๑)∩";
+
+            Console.WriteLine(title);
+            Console.WriteLine(pika + "\tMain Menu");
             Console.WriteLine("***************************");
             Console.WriteLine();
             Console.WriteLine(" 1. Pokedex");

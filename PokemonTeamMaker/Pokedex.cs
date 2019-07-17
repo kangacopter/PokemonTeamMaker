@@ -64,10 +64,42 @@ namespace PokemonTeamMaker
         // Might be able to make this return sections of it, or have paging...
         public void GetPokedex()
         {
-            foreach (var entry in Entries)
+            int perPage = 5;
+            int numberPages = Entries.Count() / perPage;
+            var currentPage = 0;
+            var currentEntries = Entries.Skip(currentPage).Take(perPage);
+            string input;
+            foreach (var entry in currentEntries)
             {
                 Console.WriteLine(entry.Value);
             }
+
+            do
+            {
+                Console.WriteLine("[ Current Page: " + currentPage + "/" + numberPages + " ] [ Z: Backward ] [ Enter: Forward ] [ Q: Exit ]");
+                Console.Write("Selection >>> ");
+                input = Console.ReadLine();
+                Console.Clear();
+                if (input == "")
+                {
+                    currentPage++;
+                    currentEntries = Entries.Skip(currentPage * perPage).Take(perPage);
+                }
+                if (input.ToLower() == "z")
+                {
+                    currentPage = currentPage <= 0 ? 0 : currentPage - 1;
+                    currentEntries = Entries.Skip(currentPage * perPage).Take(perPage);
+                }
+                foreach (var entry in currentEntries)
+                {
+                    Console.WriteLine(entry.Value);
+                }
+
+            }
+            while (input != "q");
+
+            PokedexMenu.Run();
+
         }
 
         // public Pokemon getPokemonByType(string type) {}
