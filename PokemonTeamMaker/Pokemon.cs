@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace PokemonTeamMaker
 {
     public class Pokemon
-    {   
+    {
         // Abilities
         public List<string> Abilities { get; set; }
 
@@ -96,22 +96,72 @@ namespace PokemonTeamMaker
 
         }
 
+        public void PokedexEntry()
+        {
+            Console.WriteLine(String.Format("{0} {1,15} {2,-8} {3,-9}", "Dex No. " + PokedexNumber + ": " + Name + " (Gen " + Generation +")", "[" + Type1 + "]", (Type2 == "None" ? null : "[" + Type2 + "]"), (IsLegendary ? "Legendary" : "Non-Legendary")));
+            Console.WriteLine("----------------------------------------------------------------------");
+            Console.Write("Abilities: ");
+            foreach (string ability in Abilities)
+            {
+                Console.Write("[" + ability + "] ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("----------------------------------------------------------------------");
+
+            Console.WriteLine();
+            Console.WriteLine(String.Format("\t   {0,15} | {1,15} | {2,10}", "Attack: " + Attack, "Defense: " + Defense, "HP: " + HP));
+            Console.WriteLine(String.Format("\t   {0,15} | {1,15} | {2,10}", "SpAttack: " + SpAttack, "SpDefense: " + SpDefense, "Speed: " + Speed));
+            Console.WriteLine(String.Format("\t   {0,15} | {1,15} | {2,10}", "Height: " + Height + "m", "Weight: " + Weight + "kg", PercentMale + "% Male"));
+            Console.WriteLine(String.Format("\t   {0,15} | {1,15} | {2,10}", "Capture %: " + CaptureRate, "Egg Steps: " + BaseEggSteps, "Happiness: " + BaseHappiness));
+        
+            Console.WriteLine("\n\t\t\t     Immunities: ");
+            // Less than 1, then it is a strength
+            Console.WriteLine(" -----------------------------------------------------------------------");
+            Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+                "bug ", "dark", "dragn", "elec", "fairy", "fight", "fire", "fly", "ghost"
+                ));
+
+Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+                AgainstBug < 1 ? "x  " : "", AgainstDark < 1 ? "x  " : "", AgainstDragon < 1 ? "x  " : "", AgainstElectric < 1 ? "x  " : "", AgainstFairy < 1 ? "x  " : "", AgainstFight < 1 ? "x  " : "", AgainstFire < 1 ? "x  " : "", AgainstFlying < 1 ? "x  " : "", AgainstGhost < 1 ? "x  " : ""
+                ));
+            Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+    "grass", "grnd", "ice ", "norml", "poisn", "psych", "rock", "steel", "water"
+    ));
+            Console.Write(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+    AgainstGrass < 1 ? "x  " : "", AgainstGround < 1 ? "x  " : "", AgainstIce < 1 ? "x  " : "", AgainstNormal < 1 ? "x  " : "", AgainstPoison < 1 ? "x  " : "", AgainstPsychic < 1 ? "x  " : "", AgainstRock < 1 ? "x  " : "", AgainstSteel < 1 ? "x  " : "", AgainstWater < 1 ? "x  " : ""
+    ));
+            Console.WriteLine("\n -----------------------------------------------------------------------");
+
+            Console.WriteLine("\n\t\t\t     Weaknesses: ");
+            // More than 1, then it is a weakness
+
+            Console.WriteLine(" -----------------------------------------------------------------------");
+            Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+                "bug ", "dark", "dragn", "elec", "fairy", "fight", "fire", "fly", "ghost"
+                ));
+
+            Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+                            AgainstBug > 1 ? "x  " : "", AgainstDark > 1 ? "x  " : "", AgainstDragon > 1 ? "x  " : "", AgainstElectric > 1 ? "x  " : "", AgainstFairy > 1 ? "x  " : "", AgainstFight > 1 ? "x  " : "", AgainstFire > 1 ? "x  " : "", AgainstFlying > 1 ? "x  " : "", AgainstGhost > 1 ? "x  " : ""
+                            ));
+            Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+    "grass", "grnd", "ice ", "norml", "poisn", "psych", "rock", "steel", "water"
+    ));
+            Console.Write(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
+    AgainstGrass > 1 ? "x  " : "", AgainstGround > 1 ? "x  " : "", AgainstIce > 1 ? "x  " : "", AgainstNormal > 1 ? "x  " : "", AgainstPoison > 1 ? "x  " : "", AgainstPsychic > 1 ? "x  " : "", AgainstRock > 1 ? "x  " : "", AgainstSteel > 1 ? "x  " : "", AgainstWater > 1 ? "x  " : ""
+    ));
+            Console.WriteLine("\n -----------------------------------------------------------------------");
+
+
+        }
+
 
 
         // Format Pokemon object output
         public override string ToString()
         {
 
-            return
-                "----------------------------------------------------------------------\n" +
-                "Dex No. " + PokedexNumber + ": " + Name + " [" + Type1 + "]" +
-                (Type2 == "None" ? null : "[" + Type2 + "]") + "\n" +
-                "Attack: [" + Attack + "]     Defense: [" + Defense + "]   HP: [" + HP +
-                "] \nSpAttack: [" + SpAttack + "]  SpDefense: [" + SpDefense + "] Speed: [" + Speed +
-                "]\nHeight: " + Height + "m Weight: " + Weight + "kg " + PercentMale + "% Male" +
-                "\n----------------------------------------------------------------------\n";
-           
-                
+            return "Dex No. " + PokedexNumber + ": " + Name + " [" + Type1 + "]";
+
         }
     }
 }

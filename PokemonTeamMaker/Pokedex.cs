@@ -60,24 +60,24 @@ namespace PokemonTeamMaker
         }
 
 
-        // This will write Pokedex entires to console
-        // Might be able to make this return sections of it, or have paging...
+        // Write all Pokedex entires to console with paging
         public void GetPokedex()
         {
-            int perPage = 5;
+            int perPage = 2;
             int numberPages = Entries.Count() / perPage;
             var currentPage = 0;
             var currentEntries = Entries.Skip(currentPage).Take(perPage);
             string input;
             foreach (var entry in currentEntries)
             {
-                Console.WriteLine(entry.Value);
+                Console.WriteLine("-~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~-\n");
+                entry.Value.PokedexEntry();
             }
 
             do
             {
-                Console.WriteLine("[ Current Page: " + currentPage + "/" + numberPages + " ] [ Z: Backward ] [ Enter: Forward ] [ Q: Exit ]");
-                Console.Write("Selection >>> ");
+                Console.WriteLine("[ Current Page: " + (currentPage + 1) + "/" + (numberPages + 1) + " ] [ Z: Backward ] [ Enter: Forward ] [ Q: Exit ]");
+                Console.Write("Enter Option or Page Number >>> ");
                 input = Console.ReadLine();
                 Console.Clear();
                 if (input == "")
@@ -90,9 +90,15 @@ namespace PokemonTeamMaker
                     currentPage = currentPage <= 0 ? 0 : currentPage - 1;
                     currentEntries = Entries.Skip(currentPage * perPage).Take(perPage);
                 }
+                if (int.TryParse(input, out int result))
+                {
+                    currentPage = result - 1;
+                    currentEntries = Entries.Skip(currentPage * perPage).Take(perPage);
+                }
                 foreach (var entry in currentEntries)
                 {
-                    Console.WriteLine(entry.Value);
+                    Console.WriteLine("-~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~-\n");
+                    entry.Value.PokedexEntry();
                 }
 
             }

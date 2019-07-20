@@ -26,11 +26,9 @@ namespace PokemonTeamMaker
             {
                 return -1;
             }
-            else return 0;
+            return 0;
 
         }
-
-        // Deal with valid int input that is not on the menu!
 
         public static void Run()
         {
