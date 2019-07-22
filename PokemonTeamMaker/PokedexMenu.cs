@@ -6,9 +6,9 @@ namespace PokemonTeamMaker
         public static int Display()
         {
             Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine("Pokedex");
-            Console.WriteLine("******************");
+            string pika = @"ϞϞ(๑⚈ ․̫ ⚈๑)∩";
+            Console.WriteLine("\n" + pika + "\tPokedex");
+            Console.WriteLine("***************************");
             Console.WriteLine();
             Console.WriteLine(" 1. View All Pokemon");
             Console.WriteLine(" 2. Search by name");
@@ -21,10 +21,6 @@ namespace PokemonTeamMaker
             if (int.TryParse(selection, out int parsedVal))
             {
                 return parsedVal;
-            }
-            if (selection == "q" || selection == "Q")
-            {
-                return -1;
             }
             return 0;
 
@@ -49,17 +45,46 @@ namespace PokemonTeamMaker
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 2:
-                            Console.Write("Enter name: ");
-                            string pokemonSearch = Console.ReadLine();
-                            Pokemon result = pokedex.GetPokemonByName(pokemonSearch);
-                            Console.WriteLine(result);
                             // Ask for name, return pokemon entry
-                            System.Threading.Thread.Sleep(9000);
+                            Console.Write("Enter name: ");
+                            try
+                            {
+                                string pokemonSearch = Console.ReadLine();
+                                Pokemon result = pokedex.GetPokemonByName(pokemonSearch);
+                                result.PokedexEntry();
+                                Console.Write("Press Enter to go back...");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                            catch (ArgumentException)
+                            {
+                                Console.WriteLine("Please enter a valid Pokemon name.");
+                                System.Threading.Thread.Sleep(2000);
+                            }
                             break;
                         case 3:
+                            // Display a Pokemon type listing, choose, display entires of pokemon
+                            Console.WriteLine("Choose from one of these types: ");
+                            pokedex.ShowTypeListing();
                             Console.Write("Enter Pokemon type: ");
-                            // Display a Pokemon type listing, choose, display list of pokemon
-                            System.Threading.Thread.Sleep(1000);
+                            Console.WriteLine();
+                            try
+                            {
+                                string typeSearch = Console.ReadLine();
+                                var typeResult = pokedex.GetPokemonByType(typeSearch);
+                                foreach (Pokemon pkmn in typeResult)
+                                {
+                                    Console.WriteLine(pkmn);
+                                }
+                                Console.Write("Press Enter to go back...");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                            catch (ArgumentException)
+                            {
+                                Console.WriteLine("Enter a valid Pokemon type.");
+                                System.Threading.Thread.Sleep(2000);
+                            }
                             break;
                         case 4:
                             Console.Clear();

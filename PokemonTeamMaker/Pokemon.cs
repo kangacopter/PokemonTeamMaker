@@ -88,7 +88,7 @@ namespace PokemonTeamMaker
             SpAttack = Convert.ToInt32(data[32]);
             SpDefense = Convert.ToInt32(data[33]);
             Speed = Convert.ToInt32(data[34]);
-            Type1 = Convert.ToString(data[35]);
+            Type1 = string.IsNullOrEmpty(data[35]) ? "None" : Convert.ToString(data[35]);
             Type2 = string.IsNullOrEmpty(data[36]) ? "None" : Convert.ToString(data[36]);
             Weight = string.IsNullOrEmpty(data[37]) ? 0.0 : Convert.ToDouble(data[37]);
             Generation = Convert.ToInt32(data[38]);
@@ -96,6 +96,7 @@ namespace PokemonTeamMaker
 
         }
 
+        // Format Pokedex entry for the Pokemon
         public void PokedexEntry()
         {
             Console.WriteLine(String.Format("{0} {1,15} {2,-8} {3,-9}", "Dex No. " + PokedexNumber + ": " + Name + " (Gen " + Generation +")", "[" + Type1 + "]", (Type2 == "None" ? null : "[" + Type2 + "]"), (IsLegendary ? "Legendary" : "Non-Legendary")));
@@ -149,18 +150,16 @@ Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5}
             Console.Write(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5} | {6,5} | {7,5} | {8,5} |",
     AgainstGrass > 1 ? "x  " : "", AgainstGround > 1 ? "x  " : "", AgainstIce > 1 ? "x  " : "", AgainstNormal > 1 ? "x  " : "", AgainstPoison > 1 ? "x  " : "", AgainstPsychic > 1 ? "x  " : "", AgainstRock > 1 ? "x  " : "", AgainstSteel > 1 ? "x  " : "", AgainstWater > 1 ? "x  " : ""
     ));
-            Console.WriteLine("\n -----------------------------------------------------------------------");
-
-
+            Console.WriteLine("\n -----------------------------------------------------------------------\n");
         }
 
 
 
-        // Format Pokemon object output
+        // Format Pokemon object string output
         public override string ToString()
         {
 
-            return "Dex No. " + PokedexNumber + ": " + Name + " [" + Type1 + "]";
+            return "Dex No. " + PokedexNumber + ": " + Name + " [" + Type1 + "]" + " [" + Type2 + "]";
 
         }
     }

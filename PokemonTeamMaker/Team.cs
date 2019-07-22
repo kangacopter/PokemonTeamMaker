@@ -124,7 +124,7 @@ namespace PokemonTeamMaker
                 int count = 1;
                 foreach (Pokemon poke in Pokemon)
                 {
-                    teamString += "Slot " + count + ": " + poke.Name + "\n";
+                    teamString += "[* Slot " + count + " *] " + poke.Name + "\n";
                     count++;
                 }
                 return teamString;

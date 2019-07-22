@@ -6,13 +6,13 @@ namespace PokemonTeamMaker
         public static int Display(Team team)
         {
             Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine("Pokemon Team Manager");
-            Console.WriteLine("***************************\n");
+            string pika = @"ϞϞ(๑⚈ ․̫ ⚈๑)∩";
+            Console.WriteLine("\n" + pika + "\t\tTeam Manager");
+            Console.WriteLine("******************************************\n");
             Console.WriteLine("Team Name: " + team.Name);
-            // Shows current status of team
+            // Shows current pokemon added to team
             Console.Write(team);
-            Console.WriteLine("\n***************************");
+            Console.WriteLine("\n******************************************");
             Console.WriteLine();
             Console.WriteLine(" 1. Add Pokemon");
             Console.WriteLine(" 2. Delete Pokemon");
@@ -28,11 +28,7 @@ namespace PokemonTeamMaker
             {
                 return parsedVal;
             }
-            else if (selection == "q" || selection == "Q")
-            {
-                return -1;
-            }
-            else return 0;
+            return 0;
 
         }
 
@@ -51,14 +47,26 @@ namespace PokemonTeamMaker
                     {
                         case 1:
                             Console.Write("Enter pokemon name: ");
-                            string name = Console.ReadLine();
-                            team.AddByName(name);
+                            try {
+                                string name = Console.ReadLine();
+                                team.AddByName(name);
+                            }
+                            catch (ArgumentException)
+                            {
+                                Console.WriteLine("MissingNo. Pokemon Not Found");
+                                System.Threading.Thread.Sleep(1000);
+                            }
+
                             break;
                         case 2:
                             Console.Write("Enter slot to empty: ");
                             var slotInput = Console.ReadLine();
                             if (Int32.TryParse(slotInput, out int slot)) {
-                                team.Remove(slot);
+                                if (slot > 0 && slot <= team.Pokemon.Count)
+                                {
+                                    team.Remove(slot);
+                                }
+                                else { Console.WriteLine("There is no Pokemon in that slot number."); }
                             } else
                             {
                                 Console.WriteLine("Invalid input: pick a slot number 1-6 to remove the Pokemon from.");

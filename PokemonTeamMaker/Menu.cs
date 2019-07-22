@@ -28,11 +28,11 @@ namespace PokemonTeamMaker
             {
                 return parsedVal;
             }
-            else if (selection == "q" || selection == "Q")
+            if (selection == "q" || selection == "Q")
             {
                 return -1;
             }
-            else return 0;
+            return 0;
 
         }
 
@@ -57,7 +57,6 @@ namespace PokemonTeamMaker
                         case 2:
                             input = -1;
                             TeamMenu.Run();
-                            System.Threading.Thread.Sleep(1000);
                             break;
                         case -1:
                             Console.Clear();
@@ -66,6 +65,8 @@ namespace PokemonTeamMaker
                         default:
                             Console.WriteLine("Invalid choice");
                             System.Threading.Thread.Sleep(1000);
+                            Console.Clear();
+                            Run();
                             break;
                     }
                 }
