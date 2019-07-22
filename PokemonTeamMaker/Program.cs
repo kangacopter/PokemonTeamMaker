@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PokemonTeamMaker
+﻿namespace PokemonTeamMaker
 {
     class MainClass
     {

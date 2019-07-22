@@ -36,10 +36,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pokemon.cs" />
     <Compile Include="Team.cs" />
-    <Compile Include="PokedexSearch.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Pokedex.cs" />
-    <Compile Include="PokedexEntry.cs" />
     <Compile Include="PokedexMenu.cs" />
     <Compile Include="TeamMenu.cs" />
   </ItemGroup>

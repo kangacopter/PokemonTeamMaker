@@ -50,12 +50,10 @@ namespace PokemonTeamMaker
 
                     // Add to pokedex dictionary
                     dex.Add(pokemon.Name, pokemon);
-
                 }
                 Entries = dex;
                 TypeListing = types;
             }
-
         }
 
         public static string ReadFile(string fileName)
@@ -115,7 +113,8 @@ namespace PokemonTeamMaker
 
         }
 
-        public List<Pokemon> GetPokemonByType(string type) {
+        public List<Pokemon> GetPokemonByType(string type)
+        {
             // Check if empty/null string or invalid type
             if (string.IsNullOrEmpty(type) || !TypeListing.Contains(type))
             {

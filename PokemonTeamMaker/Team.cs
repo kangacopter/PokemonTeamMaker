@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 
 namespace PokemonTeamMaker
 {
@@ -18,14 +17,6 @@ namespace PokemonTeamMaker
             Slots = slots; // Set number of slots a team can be
             Pokemon = new List<Pokemon>(); // Pokemon list
         }
-
-        //// Overload method to set the Pokemon list 
-        //public Team(string name, int slots, List<Pokemon> pokemon)
-        //{
-        //    Name = name; // Set name of pokemon team
-        //    Slots = slots; // Set number of slots a team can be
-        //    Pokemon = pokemon; // Set loaded pokemon
-        //}
 
         // Saves team to CSV file
         public void SaveTeam()
@@ -98,9 +89,7 @@ namespace PokemonTeamMaker
                         }
                         Name = teamName;
                         Pokemon = teamPokemon;
-
                     }
-
                 }
             }
             catch (FileNotFoundException)

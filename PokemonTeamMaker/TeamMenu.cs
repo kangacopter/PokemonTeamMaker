@@ -29,7 +29,6 @@ namespace PokemonTeamMaker
                 return parsedVal;
             }
             return 0;
-
         }
 
         public static void Run()
@@ -47,7 +46,8 @@ namespace PokemonTeamMaker
                     {
                         case 1:
                             Console.Write("Enter pokemon name: ");
-                            try {
+                            try
+                            {
                                 string name = Console.ReadLine();
                                 team.AddByName(name);
                             }
@@ -61,17 +61,19 @@ namespace PokemonTeamMaker
                         case 2:
                             Console.Write("Enter slot to empty: ");
                             var slotInput = Console.ReadLine();
-                            if (Int32.TryParse(slotInput, out int slot)) {
+                            if (Int32.TryParse(slotInput, out int slot))
+                            {
                                 if (slot > 0 && slot <= team.Pokemon.Count)
                                 {
                                     team.Remove(slot);
                                 }
                                 else { Console.WriteLine("There is no Pokemon in that slot number."); }
-                            } else
+                            }
+                            else
                             {
                                 Console.WriteLine("Invalid input: pick a slot number 1-6 to remove the Pokemon from.");
                             }
-                            
+
                             System.Threading.Thread.Sleep(1000);
                             break;
                         case 3:
@@ -97,7 +99,6 @@ namespace PokemonTeamMaker
                             Console.WriteLine("Invalid choice");
                             System.Threading.Thread.Sleep(1000);
                             break;
-
                     }
                 }
                 catch (Exception e)
