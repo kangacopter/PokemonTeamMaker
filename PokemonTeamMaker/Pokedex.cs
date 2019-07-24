@@ -149,7 +149,7 @@ namespace PokemonTeamMaker
                 {
                     Console.WriteLine();
                 }
-                Console.Write(String.Format("{0, 15}", "[" + t + "] "));
+                Console.Write(String.Format("{0, -15}", "[" + t + "] "));
                 count++;
             }
             Console.WriteLine("\n\n");
