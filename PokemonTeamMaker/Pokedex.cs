@@ -105,7 +105,6 @@ namespace PokemonTeamMaker
                     Console.WriteLine("-~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~--~*~-\n");
                     entry.Value.PokedexEntry();
                 }
-
             }
             while (input != "q");
 
@@ -143,11 +142,17 @@ namespace PokemonTeamMaker
 
         public void ShowTypeListing()
         {
+            int count = 0;
             foreach (string t in TypeListing)
             {
-                Console.Write(" [" + t + "] ");
+                if (count % 4 == 0)
+                {
+                    Console.WriteLine();
+                }
+                Console.Write(String.Format("{0, 15}", "[" + t + "] "));
+                count++;
             }
-            Console.WriteLine();
+            Console.WriteLine("\n\n");
         }
 
     }

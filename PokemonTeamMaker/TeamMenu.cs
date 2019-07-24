@@ -56,7 +56,6 @@ namespace PokemonTeamMaker
                                 Console.WriteLine("MissingNo. Pokemon Not Found");
                                 System.Threading.Thread.Sleep(1000);
                             }
-
                             break;
                         case 2:
                             Console.Write("Enter slot to empty: ");

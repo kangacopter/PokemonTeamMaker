@@ -108,7 +108,6 @@ namespace PokemonTeamMaker
             }
             Console.WriteLine();
             Console.WriteLine("----------------------------------------------------------------------");
-
             Console.WriteLine();
             Console.WriteLine(String.Format("\t   {0,15} | {1,15} | {2,10}", "Attack: " + Attack, "Defense: " + Defense, "HP: " + HP));
             Console.WriteLine(String.Format("\t   {0,15} | {1,15} | {2,10}", "SpAttack: " + SpAttack, "SpDefense: " + SpDefense, "Speed: " + Speed));
@@ -153,14 +152,10 @@ Console.WriteLine(String.Format("| {0,5} | {1,5} | {2,5} | {3,5} | {4,5} | {5,5}
             Console.WriteLine("\n -----------------------------------------------------------------------\n");
         }
 
-
-
         // Format Pokemon object string output
         public override string ToString()
         {
-
             return "Dex No. " + PokedexNumber + ": " + Name + " [" + Type1 + "]" + " [" + Type2 + "]";
-
         }
     }
 }

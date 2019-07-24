@@ -21,7 +21,6 @@ namespace PokemonTeamMaker
         // Saves team to CSV file
         public void SaveTeam()
         {
-
             // Save to user's My Documents
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var filePath = Path.Combine(path, $"myPokemonTeam.csv");
@@ -35,7 +34,6 @@ namespace PokemonTeamMaker
                 }
                 sw.Write("\n");
                 Console.WriteLine("Team saved to " + filePath);
-
             }
 
         }
@@ -118,7 +116,6 @@ namespace PokemonTeamMaker
                 }
                 return teamString;
             }
-
             return "No pokemon in this team, yet.\n";
         }
     }

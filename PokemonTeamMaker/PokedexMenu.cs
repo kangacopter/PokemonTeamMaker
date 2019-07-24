@@ -23,7 +23,6 @@ namespace PokemonTeamMaker
                 return parsedVal;
             }
             return 0;
-
         }
 
         public static void Run()
@@ -67,7 +66,6 @@ namespace PokemonTeamMaker
                             Console.WriteLine("Choose from one of these types: ");
                             pokedex.ShowTypeListing();
                             Console.Write("Enter Pokemon type: ");
-                            Console.WriteLine();
                             try
                             {
                                 string typeSearch = Console.ReadLine();
@@ -94,7 +92,6 @@ namespace PokemonTeamMaker
                             Console.WriteLine("Invalid choice");
                             System.Threading.Thread.Sleep(1000);
                             break;
-
                     }
                 }
                 catch (Exception e)
